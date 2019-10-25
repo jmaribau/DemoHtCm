@@ -1,0 +1,38 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    mysql:
+      image: mysql:5.7
+      container_name: aribau2-mysql
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=tt_root_pw
+        - MYSQL_DATABASE=tt_db_cj
+        - MYSQL_USER=tt_user
+        - MYSQL_PASSWORD=tt_pwd
+      ports:
+        - "8052:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: aribau2-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8050:80"
+
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: aribau2-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+

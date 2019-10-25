@@ -1,0 +1,28 @@
+includes:
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - vendor/phpstan/phpstan-doctrine/rules.neon
+
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+
+    - vendor/phpstan/phpstan-beberlei-assert/extension.neon
+
+    - vendor/phpstan/phpstan-symfony/extension.neon
+#    - vendor/phpstan/phpstan-symfony/rules.neon
+
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
+
+parameters:
+    autoload_files:
+        - bin/.phpunit/phpunit-7.5/vendor/autoload.php
+
+    ignoreErrors:
+        - '#dispatch\(\) invoked with 2 parameters, 1 required#'
+        - '#Dynamic call to static method PHPUnit\\Framework\\.*#'
+
+
+
+
+

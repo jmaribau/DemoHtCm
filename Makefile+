@@ -1,0 +1,3 @@
+ bin/phpunit --filter CoffeeControllerTest
+ make fixtures && bin/phpunit --filter CoffeeControllerTest
+ bin/phpunit tests/Integration/Manager/Logger
