@@ -1,6 +1,4 @@
 # Index
-Tecnical test of Josep Maria Aribau
-
 - [Task](#task)
 - [Stack](#stack)
 - [Install](#install)
